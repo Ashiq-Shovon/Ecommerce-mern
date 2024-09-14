@@ -1,0 +1,9 @@
+time: 2:16:00
+
+login button click event trigger
+
+auth-controller (create login controller)
+auth-routes(use the above route)
+uses the auth router in sever.js(only one path)
+redux slice (auth-slice)-> createAsyncthunk
+call that from component login

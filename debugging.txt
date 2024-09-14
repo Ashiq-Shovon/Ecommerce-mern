@@ -1,0 +1,4 @@
+if server internal 500 status is found
+    then most probably it will be missing await
+
+useEffect is run after whole application have finished it execution
