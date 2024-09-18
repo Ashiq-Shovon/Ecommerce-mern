@@ -10,7 +10,7 @@ const AuthCheck = ({ isAuthenticated, user, children }) => {
       location.pathname.includes("auth/register")
     )
   ) {
-    alert("/auth/login")
+    // alert("/auth/login")
     return <Navigate to="/auth/login" />;
   }
 

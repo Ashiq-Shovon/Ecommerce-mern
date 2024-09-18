@@ -17,8 +17,10 @@ const CommonForm = ({
   setFormData,
   onSubmit,
   buttonText,
+  className,
 }) => {
   //   console.log(formControls);
+  // const { parent, child, button } = className;
   function renderInputsByComponentType(getControlItem) {
     let element = null;
     const value = formData[getControlItem.name] || "";
@@ -49,7 +51,7 @@ const CommonForm = ({
             value={value}
           >
             <SelectTrigger className="w-full">
-              <SelectValue placeholder={getControlItem.placeholder} />
+              <SelectValue placeholder={getControlItem.label} />
             </SelectTrigger>
             <SelectContent>
               {getControlItem.options && getControlItem.options.length > 0
@@ -98,23 +100,33 @@ const CommonForm = ({
         break;
     }
     return element;
-    }
+  }
   return (
     <>
       <form onSubmit={onSubmit}>
         <div className="flex flex-col gap-3">
           {formControls.map((controlItem) => {
             return (
-              <div className="grid w-full gap-1.5" key={controlItem.name}>
+              <div
+                className={`${className?.parent ? className.parent : "grid w-full gap-1.5"}`}
+                key={controlItem.name}
+              >
                 <Label className="mb-1">{controlItem.label}</Label>
-                {renderInputsByComponentType(controlItem)}
+                <div className={`${className?.child ? className?.child : ""}`}>
+                  {renderInputsByComponentType(controlItem)}
+                </div>
               </div>
             );
           })}
         </div>
-        <Button type="submit" className="mt-2 w-full">
-          {buttonText || "Submit"}
-        </Button>
+        <div className={`${className?.button ? className?.button : ""}`}>
+          <Button
+            type="submit"
+            className={`${className?.button ? "w-full" : "mt-2 w-full"}`}
+          >
+            {buttonText || "Submit"}
+          </Button>
+        </div>
       </form>
     </>
   );
