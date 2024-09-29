@@ -7,15 +7,15 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 const initialState = {
-  userName: "",
+  email: "",
   password: "",
 };
 const Login = () => {
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const { toast } = useToast();
-  function onSubmit(e) {
-    e.preventDefault();
+  function onSubmit() {
+    console.log(formData)
     dispatch(loginUser(formData)).then((data) => {
       console.log(data)
       if (data?.payload?.success) {
@@ -51,7 +51,8 @@ const Login = () => {
           formData={formData}
           setFormData={setFormData}
           onSubmit={onSubmit}
-          buttonText={"Sign Up"}
+          buttonText={"Login"}
+          className={""}
         />
       </div>
     </>

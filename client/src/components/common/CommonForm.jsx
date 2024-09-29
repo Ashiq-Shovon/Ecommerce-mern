@@ -103,12 +103,19 @@ const CommonForm = ({
   }
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmit(buttonText);
+        }}
+      >
         <div className="flex flex-col gap-3">
           {formControls.map((controlItem) => {
             return (
               <div
-                className={`${className?.parent ? className.parent : "grid w-full gap-1.5"}`}
+                className={`${
+                  className?.parent ? className.parent : "grid w-full gap-1.5"
+                }`}
                 key={controlItem.name}
               >
                 <Label className="mb-1">{controlItem.label}</Label>

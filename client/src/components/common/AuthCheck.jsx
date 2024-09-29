@@ -21,7 +21,6 @@ const AuthCheck = ({ isAuthenticated, user, children }) => {
     if (user?.role == "admin") {
       return <Navigate to="/admin/dashboard" />;
     } else if (user?.role == "user") {
-      
       return <Navigate to="/shop/home" />;
     }
   }

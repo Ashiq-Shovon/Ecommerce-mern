@@ -11,7 +11,7 @@ import Features from "./pages/admin-view/Features";
 import ShoppingLayout from "./components/shopping-view/ShoppingLayout";
 import NotFound from "./pages/not-found/NotFound";
 import ShoppingHome from "./pages/shopping-view/ShoppingHome";
-import ShoppingListing from "./pages/shopping-view/ShoppingListing";
+import ShoppingListing from "./pages/shopping-view/shop-listing/ShoppingListing";
 import ShoppingCheckout from "./pages/shopping-view/ShoppingCheckout";
 import ShoppingAccount from "./pages/shopping-view/ShoppingAccount";
 import AuthCheck from "./components/common/AuthCheck";
@@ -19,15 +19,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { authCheck } from "./store/auth-slice";
 
 function App() {
-  const { isAuthenticated, user, isLoading } = useSelector((state) => state.auth);
+  const { isAuthenticated, user, isLoading } = useSelector(
+    (state) => state.auth
+  );
   // console.log(user)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(authCheck());
   }, [dispatch]);
-  console.log(isAuthenticated)
+  console.log(isAuthenticated);
   if (isLoading) {
-    return <div>loading....</div>
+    return <div>loading....</div>;
   }
   return (
     <>

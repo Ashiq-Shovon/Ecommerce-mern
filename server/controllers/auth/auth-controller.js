@@ -38,8 +38,11 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
+  console.log(email);
+  console.log(password);
   try {
     const checkUser = await User.findOne({ email });
+    console.log(checkUser);
     if (!checkUser)
       return res.json({
         success: false,
@@ -84,6 +87,12 @@ const loginUser = async (req, res) => {
 };
 
 //logout
+const logoutUser = async (req, res) => {
+  res.clearCookie("token").json({
+    success: true,
+    message: "logout successfully",
+  });
+};
 
 //auth middleware
 const authMiddleware = (req, res, next) => {
@@ -107,4 +116,4 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-module.exports = { registerUser, loginUser, authMiddleware };
+module.exports = { registerUser, loginUser, authMiddleware, logoutUser };

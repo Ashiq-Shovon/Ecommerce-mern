@@ -40,7 +40,6 @@ export const loginFormControls = [
 ];
 
 export const productFormControls = [
- 
   {
     label: "Title",
     name: "title",
@@ -98,7 +97,8 @@ export const productFormControls = [
       {
         id: "zara",
         label: "Zara",
-      },{
+      },
+      {
         id: "h&m",
         label: "H&M",
       },
@@ -126,3 +126,39 @@ export const productFormControls = [
     componentType: "input",
   },
 ];
+
+export const filterOptions = {
+  category: [
+    { id: "men", label: "Men" },
+    { id: "women", label: "Women" },
+    { id: "kids", label: "Kids" },
+    { id: "accessories", label: "Accessories" },
+  ],
+  brand: [
+    { id: "puma", label: "Puma" },
+    { id: "adidas", label: "Adidas" },
+    { id: "levi", label: "Levi" },
+    { id: "zara", label: "Zara" },
+    { id: "h&m", label: "H&M" },
+  ],
+};
+export const sortOptions = [
+  { id: "price-lowtohigh", label: "Price: Low to High" },
+  { id: "price-hightolow", label: "Price: High to Low" },
+  { id: "title-atoz", label: "Title: A to Z" },
+  { id: "title-ztoa", label: "Title: Z to A" },
+];
+export const categoryOptionsMap = {
+  men: "Men",
+  women: "Women",
+  kids: "Kids",
+  accessories: "Accessories",
+};
+
+export const brandOptionsMap = {
+  puma: "Puma",
+  adidas: "Adidas",
+  levi: "Levi",
+  zara: "Zara",
+  "h&m": "H&M",
+};

@@ -5,10 +5,12 @@ const cors = require("cors");
 
 const authRouter = require("./routes/auth/auth-routes");
 const productRouter = require("./routes/admin/product-routes");
+const shopRouter = require("./routes/shop/shop-routes");
 
 //create a database connection -> u can also
 //create a separate file for this and then import/use that file here
 
+// .connect("mongodb+srv://mernEcommerce:FxPYra4DEofRnc05@cluster0.kipmj.mongodb.net/")
 mongoose
   .connect("mongodb+srv://mern-ecommerce:mern1748!@cluster0.kipmj.mongodb.net/")
   .then(() => console.log("mongodb connected"))
@@ -36,5 +38,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/admin", productRouter);
+app.use("/api/shop", shopRouter);
 
 app.listen(PORT, () => console.log(`Server is now running on port ${PORT}`));
